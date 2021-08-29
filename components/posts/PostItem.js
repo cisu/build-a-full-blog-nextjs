@@ -13,20 +13,23 @@ const PostItem = props => {
     year: 'numeric',
   });
 
-// construct a full imagePath (because the file name is not enough.)
+  // construct a full imagePath (because the file name is not enough.)
+  const imagePath = `/images/posts/${slug}/${image}`;
 
-const imagePath = `/images/posts/${slug}/${image}`
+  // linkPath
+  const linkPath = `/posts/${slug}`;
 
   return (
     <li className={styles.post}>
-      <Link href>
+      <Link href={linkPath}>
         <a>
           <div className={styles.image}>
             <Image
-            src={imagePath}
-            alt={title}
-            width={300}
-            height={200}
+              src={imagePath}
+              alt={title}
+              width={300}
+              height={200}
+              layout='responsive'
             />
           </div>
           <div className={styles.content}>
